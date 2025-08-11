@@ -28,12 +28,16 @@ jobs:
 
       - name: Prepare Capacitor Android
         run: |
-          rm -rf android
-          npx cap init home-inspectors com.homeinspectors.app --web-dir=dist
-          npx cap add android
+          npx cap init home-inspectors com.homeinspectors.app --web-dir=dist || true
+          npx cap add android || true
           npx cap copy
+
+      - name: Ensure debug.keystore exists in correct place
+        run: |
           mkdir -p android/app
-          cp android/debug.keystore android/app/debug.keystore
+          if [ -f android/debug.keystore ]; then
+            mv -f android/debug.keystore android/app/debug.keystore
+          fi
 
       - name: Build APK via Gradle
         working-directory: android
