@@ -32,6 +32,11 @@ jobs:
           npx cap add android || true
           npx cap copy
 
+      - name: Move debug.keystore
+        run: |
+          mkdir -p android/app
+          cp android/debug.keystore android/app/debug.keystore
+
       - name: Build APK via Gradle
         working-directory: android
         run: |
