@@ -1,0 +1,6 @@
+{
+  "appId": "com.homeinspectors.app",
+  "appName": "Home Inspectors",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
