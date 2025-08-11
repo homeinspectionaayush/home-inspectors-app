@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Install Capacitor CLI
-        run: npm install --no-save @capacitor/cli @capacitor/android
+        run: npm install --legacy-peer-deps --no-save @capacitor/cli@7.4.2 @capacitor/android@7.4.2
 
       - name: Prepare Capacitor Android
         run: |
